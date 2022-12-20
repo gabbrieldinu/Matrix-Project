@@ -1,3 +1,5 @@
+
+
 #include "LedControl.h"
 #include <EEPROM.h>
 #include <LiquidCrystal.h>
@@ -27,6 +29,7 @@ const byte pinX = A4;
 const byte pinY = A5;
 
 unsigned long timerGame;
+unsigned long timerWelcomeMenu = -1;
 unsigned long timerGameDifficulty=0;
 unsigned long timerGameLevel=0;
 unsigned long timerGameSequence = 0;
@@ -1028,16 +1031,39 @@ void displayGameScore()
 {
   lcd.setCursor(0, 0);
   lcd.print("Score: ");
-  lcd.setCursor(8,0);
+  lcd.setCursor(6,0);
   lcd.print(gameScore);
   
 }
 void displayGameTimeRemaining(int time)
 {
   lcd.setCursor(0, 1);
-  lcd.print("Time: ");
-  lcd.setCursor(8,1);
+  lcd.print("Time:");
+  lcd.setCursor(6,1);
   lcd.print(time); 
+}
+void displayInGameDifficulty()
+{
+  lcd.setCursor(10, 0);
+  lcd.print("Dif:");
+  lcd.setCursor(15,0);
+  lcd.print(gameDifficulty); 
+}
+
+void displayWelcomeMenu()
+{
+  lcd.setCursor(2, 0);
+  lcd.print("Welcome to");
+  lcd.setCursor(4,1);
+  lcd.print("EI GAME");
+}
+
+void displayInGameLevel()
+{
+  lcd.setCursor(10, 1);
+  lcd.print("Lvl:");
+  lcd.setCursor(15,1);
+  lcd.print(gameLevel); 
 }
 
 void gameMenu()
@@ -1134,6 +1160,8 @@ void increaseSequence()
   timerGameSequence += gameTimeIncrement;
   displayGameScore();
   displayGameTimeRemaining(timerGameSequence);
+  displayInGameLevel();  
+  displayInGameDifficulty();
   int ok=0,x,y;
   while(ok==0)
   {
@@ -1268,7 +1296,7 @@ void endGame()
 void endGameMenu()
 {
   int currentSecond = (millis() - timerGame) / 1000;
-  if ( currentSecond < 5)
+  if ( currentSecond < 2)
   {
      if (gameLost == false)
     {
@@ -1285,7 +1313,7 @@ void endGameMenu()
     }
   }
  
-  if (currentSecond > 3)
+  if (currentSecond > 2)
   {
     lcd.clear();
     gameMenuPosition =5;
@@ -1302,7 +1330,7 @@ void postGameMenu()
       EEPROM.get(140,image);
       displayImage(image);
       gameHighscoreChanged = true;
-      if (millis() - timerGame < 3000)
+      if (millis() - timerGame < 1500)
       {
         if (gameScore > highscores[0].score)
           displayAllHighscoresBeatMessage();
@@ -1310,21 +1338,21 @@ void postGameMenu()
           displayHighscoreBeatMessage();
       }
 
-      if (millis() - timerGame > 3000 && millis() - timerGame < 3200)
+      if (millis() - timerGame > 1500 && millis() - timerGame < 1700)
       {
         lcd.clear();
       }
 
-      if (millis() - timerGame > 3200 && millis() - timerGame < 6200)
+      if (millis() - timerGame > 1700 && millis() - timerGame < 2700)
       {
         displayRequestNameMessage();
       }
 
-      if (millis() - timerGame > 6200 && millis() - timerGame < 6400)
+      if (millis() - timerGame > 2700 && millis() - timerGame < 2900)
       {
         lcd.clear();
       }
-      if (millis() - timerGame > 6400)
+      if (millis() - timerGame > 3000)
       {
         
         highscores[5].score = gameScore;
@@ -1498,17 +1526,13 @@ void game()
     lastSecond = currentSecond;
     gameTimeRemaining = timerGameSequence - currentSecond;
 
-    if (gameLevel < 3)
-    {
-      
+  
         if (gameLevel > 1)
           turnOnPixel(gamePlayerX,gamePlayerY);
         else
         {
           turnOnSquare(gamePlayerX,gamePlayerY);
         }
-        
-    }
 
     if ( gameLevel == 3 && gamePlayerSequencePosition == 0)
     {
@@ -1519,6 +1543,8 @@ void game()
 
     
     displayGameTimeRemaining(gameTimeRemaining);
+    displayInGameLevel();
+displayInGameDifficulty();
 
     if (xMovement == 1 && gamePlayerX > 0)
     {
@@ -1631,13 +1657,30 @@ void game()
 
 void loop() 
 {
-
+  randomSeed(millis());
   if (currentMenu == 1)
   {
-    byte image[8];
+    
+    if (timerWelcomeMenu == -1)
+    {
+      timerWelcomeMenu = millis();
+    }
+    if ( millis() - timerWelcomeMenu < 1500 )
+    {
+      displayWelcomeMenu();
+    }
+    if ( millis() - timerWelcomeMenu > 1500 && millis() - timerWelcomeMenu < 1700)
+    {
+      lcd.clear();
+    }
+    if ( millis() - timerWelcomeMenu > 1700)
+    {
+      byte image[8];
     EEPROM.get(180,image);
     displayImage(image);
     mainMenu();
+    }
+    
   }
   else
   {
