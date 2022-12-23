@@ -19,18 +19,18 @@ But how was it possible to make such an interesting and complex game? Can it eve
   - I started developing the initial game with the logic from level 2 and difficulty 2
     -- For that I needed to the game to have 2 separate states
     -- In the First State the sequence will be shown
-      --- For that every second a dot will be lit ( and the previous stopped) until the end of sequence
+      -- For that every second a dot will be lit ( and the previous stopped) until the end of sequence
     -- In the Second State the player may move using the joystick
-      --- Lighting up the current dot position and after detecting joystick movement turning it off and moving the player position ( within matrix limits)
+      -- Lighting up the current dot position and after detecting joystick movement turning it off and moving the player position ( within matrix limits)
   - After that was working, I needed to keep track of the score and also time remaining
   - Now I was able to start implementing that end game scenarios:
-       -- Choosing the wrong sequence and losing the game
-       -- Time expiring and losing the game
-       -- Getting the sequence right and increasing it until the limit
-       -- Checking if a highscore was beat
-       -- Checking if all highscores were beat
-       -- Checking if no highscore was beat
-       --- If any highscore was beat, I needed a name introduction screen, that would after exiting save the name and score of player
+       - Choosing the wrong sequence and losing the game
+       - Time expiring and losing the game
+       - Getting the sequence right and increasing it until the limit
+       - Checking if a highscore was beat
+       - Checking if all highscores were beat
+       - Checking if no highscore was beat
+       - If any highscore was beat, I needed a name introduction screen, that would after exiting save the name and score of player
     - After that was done it came the most important part: choosing the right images for EACH state, where I went a bit too wild. Some may call it crazy, I call it diverse and innovative. But hey geniuses are usually misunderstood.
    - That was pretty much everything related to the game, oh wait. I forgot. After that I made sure I have a lot of fun the game. You should too!
     
