@@ -17,11 +17,11 @@ The main game inspiration is level 2, difficulty 2.
 But how was it possible to make such an interesting and complex game? Can it even be explained? Not sure, but I will try my best:
 
   - I started developing the initial game with the logic from level 2 and difficulty 2
-    -- For that I needed to the game to have 2 separate states
-    -- In the First State the sequence will be shown
-      -- For that every second a dot will be lit ( and the previous stopped) until the end of sequence
-    -- In the Second State the player may move using the joystick
-      -- Lighting up the current dot position and after detecting joystick movement turning it off and moving the player position ( within matrix limits)
+    - For that I needed to the game to have 2 separate states
+    - In the First State the sequence will be shown
+    - For that every second a dot will be lit ( and the previous stopped) until the end of sequence
+    - In the Second State the player may move using the joystick
+    - Lighting up the current dot position and after detecting joystick movement turning it off and moving the player position ( within matrix limits)
   - After that was working, I needed to keep track of the score and also time remaining
   - Now I was able to start implementing that end game scenarios:
        - Choosing the wrong sequence and losing the game
