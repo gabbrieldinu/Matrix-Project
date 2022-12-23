@@ -22,30 +22,31 @@ But how was it possible to make such an interesting and complex game? Can it eve
       --- For that every second a dot will be lit ( and the previous stopped) until the end of sequence
     -- In the Second State the player may move using the joystick
       --- Lighting up the current dot position and after detecting joystick movement turning it off and moving the player position ( within matrix limits)
-    -- After that was working, I needed to keep track of the score and also time remaining
-    -- Now I was able to start implementing that end game scenarios:
-       --- Choosing the wrong sequence and losing the game
-       --- Time expiring and losing the game
-       --- Getting the sequence right and increasing it until the limit
-       --- Checking if a highscore was beat
-       --- Checking if all highscores were beat
-       --- Checking if no highscore was beat
+  - After that was working, I needed to keep track of the score and also time remaining
+  - Now I was able to start implementing that end game scenarios:
+       -- Choosing the wrong sequence and losing the game
+       -- Time expiring and losing the game
+       -- Getting the sequence right and increasing it until the limit
+       -- Checking if a highscore was beat
+       -- Checking if all highscores were beat
+       -- Checking if no highscore was beat
        --- If any highscore was beat, I needed a name introduction screen, that would after exiting save the name and score of player
-    -- After that was done it came the most important part: choosing the right images for EACH state, where I went a bit too wild. Some may call it crazy, I call it diverse and innovative. But hey geniuses are usually misunderstood.
-    -- That was pretty much everything related to the game, oh wait. I forgot. After that I made sure I have a lot of fun the game. You should too!
+    - After that was done it came the most important part: choosing the right images for EACH state, where I went a bit too wild. Some may call it crazy, I call it diverse and innovative. But hey geniuses are usually misunderstood.
+   - That was pretty much everything related to the game, oh wait. I forgot. After that I made sure I have a lot of fun the game. You should too!
     
 
 
 
 # Game Instructions
 
--Game:
+- Game:
 * joystick UP the player moves UP
 * joystick DOWN the player moves DOWN
 * joystick RIGHT the player moves RIGHT
 * joystick LEFT the player moves LEFT
 * the button locks the sequence chosen
--Menu:
+* 
+ -Menu:
 * to scroll UP/DOWN move the joystick UP/DOWN
 * to select an option move the joystick RIGHT
 * to go back to the last option move the joystick LEFT
@@ -65,5 +66,7 @@ But how was it possible to make such an interesting and complex game? Can it eve
 1x 100 Ohm Resistor
 42x Wires
 ![breadboard](https://user-images.githubusercontent.com/74376628/209407894-635662e0-650b-4092-a687-7c793e4ff40f.jpg)
-Link to game menu demo:https://www.youtube.com/watch?v=vwJlXSEQM5E
-Link to game demo:https://www.youtube.com/watch?v=Kpo195rfc8o
+
+- Link to game menu demo:https://www.youtube.com/watch?v=vwJlXSEQM5E
+
+- Link to game demo:https://www.youtube.com/watch?v=Kpo195rfc8o
