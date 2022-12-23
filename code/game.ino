@@ -1933,7 +1933,7 @@ void loop()
           if (currentMenu == 6)
           {
             byte image[8];
-            EEPROM.get(140,image);
+            EEPROM.get(TROPHY_IMAGE_ADDRESS,image);
             displayImage(image);
             highscoreScreen();
           }
