@@ -1,5 +1,5 @@
 
-#Game Description
+# Game Description
   This may seem quite familiar. It is sequence-memory game, but with a twist. Or twists I may add. This version has uunique levels and difficulties, with an awesome menu. Well that seems basic, what can be so special about a few levels or difficulties based on a straight-forward game? Well I am gonna let you decide. Let's dive into the levels first:
   - Level One : The sequence will be 2x2 squares
   - Level Two : The sequence will be 1x1 dots
@@ -12,7 +12,7 @@ The three difficulties:
 
 The main game inspiration is level 2, difficulty 2.
 
-#Game development
+# Game development
 
 But how was it possible to make such an interesting and complex game? Can it even be explained? Not sure, but I will try my best:
 
@@ -37,7 +37,7 @@ But how was it possible to make such an interesting and complex game? Can it eve
 
 
 
-#Game Instructions
+# Game Instructions
 
 -Game:
 * joystick UP the player moves UP
